@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alan — My Albums</title>
+<meta name="description" content="Alan's shelf of photo albums — open a book and flip through the pages.">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Advent+Pro:wght@200;300;400;500;600;700&family=Long+Cang&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="#/home" aria-label="Back to the shelf">Alan</a>
+  <button class="back-btn" data-back hidden>←&nbsp;Shelf</button>
+</header>
+
+<main id="app">
+
+  <!-- ===== 书架（Home） ===== -->
+  <section class="view shelf-view" data-view="home">
+    <div class="shelf-header">
+      <h1 class="shelf-title">My&nbsp;albums</h1>
+      <p class="shelf-sub">A shelf of two books — tap one to open it and flip through the pages.</p>
+    </div>
+    <div class="shelf">
+      <img src="img/shelf.jpg" alt="A wooden bookshelf holding two books">
+
+      <!-- 书 1：Photography · animals -->
+      <button class="book-spot spot-blue" data-open="1" aria-label="Open the Photography animals album">
+        <span class="spot-hint" aria-hidden="true"></span>
+        <span class="spine-text">Animal Photography</span>
+      </button>
+
+      <!-- 书 2：Scenery -->
+      <button class="book-spot spot-yellow" data-open="2" aria-label="Open the Scenery album">
+        <span class="spot-hint" aria-hidden="true"></span>
+        <span class="spine-text">Scenery Photography</span>
+      </button>
+
+      <!-- About me - inside the shelf, right side -->
+      <aside class="about-me">
+        <h2 class="about-title">About&nbsp;me</h2>
+        <p class="about-text">My name is Alan. I like travelling, doing sports and taking photos. I also play games when I have spare time. I tend to notice small things around me. I think things through before I decide.</p>
+        <div class="about-photos">
+          <img class="about-photo" src="img/portrait_004223.jpg" alt="Alan playing sports">
+          <img class="about-photo" src="img/14655FA1.jpg" alt="Alan with friends">
+        </div>
+      </aside>
+    </div>
+
+    <!-- ===== What can I help ===== -->
+    <div class="help-section">
+      <button class="help-toggle" id="helpToggle">What can I help</button>
+      <div class="help-content" id="helpContent" hidden>
+        <div class="help-card">
+          <h3>Computer & AI</h3>
+          <p><strong>Who I want to help:</strong> People who are interested in computers and AI but don't know where to start.</p>
+          <p><strong>What I can offer:</strong> Share computer knowledge, introduce useful AI tools, and help solve simple technical problems.</p>
+          <p><strong>My experience:</strong> I am interested in computers and AI and enjoy exploring new technology.</p>
+          <p><strong>Time commitment:</strong> Around 30–60 minutes per session.</p>
+          <p><strong>How to get started:</strong> Contact me and tell me what you want to learn about.</p>
+        </div>
+        <div class="help-card">
+          <h3>Study Buddy</h3>
+          <p><strong>Who I want to help:</strong> Students who want to improve their learning or need help with schoolwork.</p>
+          <p><strong>What I can offer:</strong> Study together, discuss homework, and share useful learning methods.</p>
+          <p><strong>My experience:</strong> I have experience with schoolwork and different learning methods.</p>
+          <p><strong>Time commitment:</strong> Around 30–60 minutes per session.</p>
+          <p><strong>How to get started:</strong> Contact me and tell me what subject you need help with.</p>
+        </div>
+        <div class="help-card">
+          <h3>Travel Guide</h3>
+          <p><strong>Who I want to help:</strong> People who want to travel but need ideas or advice.</p>
+          <p><strong>What I can offer:</strong> Share travel experiences, recommend interesting places, and give travel advice.</p>
+          <p><strong>My experience:</strong> I enjoy traveling and discovering new places.</p>
+          <p><strong>Time commitment:</strong> Around 30 minutes to 1 hour per session.</p>
+          <p><strong>How to get started:</strong> Contact me and tell me where you plan to travel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 画册（Album） ===== -->
+  <section class="view album-view" data-view="album">
+    <div class="album-head">
+      <h2 class="album-title" data-album-title></h2>
+      <span class="rule" aria-hidden="true"></span>
+    </div>
+
+    <div class="book-stage">
+      <div class="pages" data-pages>
+        <!-- album pages are injected by app.js -->
+      </div>
+
+      <button class="flip prev" data-flip="prev" aria-label="Previous page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+      <button class="flip next" data-flip="next" aria-label="Next page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+      </button>
+    </div>
+
+    <div class="album-foot">
+      <span class="page-count" data-count></span>
+      <div class="dots" data-dots></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- <footer class="site-footer">
+  <span class="footer-brand">Alan</span>
+  <p>Photography · Scenery · Small help</p>
+</footer> -->
+
+<script src="app.js"></script>
+<script>
+  document.getElementById('helpToggle').addEventListener('click', function() {
+    var content = document.getElementById('helpContent');
+    content.hidden = !content.hidden;
+  });
+</script>
+</body>
+</html>
